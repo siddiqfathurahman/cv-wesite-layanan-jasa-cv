@@ -5,31 +5,31 @@ const ServiceItem = ({ imgSrc, title, description }) => (
     <div className='flex items-center mx-14'>
         <img className="w-14" src={imgSrc} alt="" />
         <h1 className='text-4xl max-w-72 font-medium pl-5 text-green-900'>{title}</h1>
-        <h2 className='ml-auto max-w-xs'>{description}</h2>
+        <h2 className='ml-auto max-w-md'>{description}</h2>
     </div>
 );
 
 const Layanan = () => {
     const services = [
         {
-            imgSrc: "/utama.png",
-            title: "Lorem ipsum dolor sit.",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus repellat quibusdam optio dolore eum reiciendis recusandae suscipit, magnam earum iusto?",
+            imgSrc: "/1.png",
+            title: "CV-Start",
+            description: "Layanan konsultasi dasar penulisan CV untuk fresh graduates dirancang untuk membantu lulusan baru menyusun CV yang efektif dan profesional. Kami membimbing mereka dalam menyoroti pengalaman magang, keterampilan, serta proyek yang relevan, meskipun pengalaman kerja masih terbatas",
         },
         {
-            imgSrc: "/utama.png",
-            title: "Lorem ipsum dolor sit.",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus repellat quibusdam optio dolore eum reiciendis recusandae suscipit, magnam earum iusto?",
+            imgSrc: "/2.png",
+            title: "CoverMax ",
+            description: "Layanan solusi penulisan surat lamaran yang memikat bertujuan membantu pelamar kerja menulis surat lamaran yang kuat dan persuasif. Kami memberikan panduan dalam menyusun surat lamaran yang menonjolkan kualifikasi, pengalaman, serta motivasi pelamar dengan jelas dan efektif",
         },
         {
-            imgSrc: "/utama.png",
-            title: "Lorem ipsum dolor sit.",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus repellat quibusdam optio dolore eum reiciendis recusandae suscipit, magnam earum iusto?",
+            imgSrc: "/3.png",
+            title: "CareerBoost ",
+            description: "Layanan Paket Revisi dan Optimalisasi CV untuk Profesional dirancang untuk membantu para pekerja yang sudah berpengalaman memperbarui dan menyempurnakan CV mereka agar lebih relevan dengan tuntutan industri saat ini.",
         },
         {
-            imgSrc: "/utama.png",
-            title: "Lorem ipsum dolor sit.",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus repellat quibusdam optio dolore eum reiciendis recusandae suscipit, magnam earum iusto?",
+            imgSrc: "/4.png",
+            title: "CV.Ku Custom",
+            description: "Layanan Penulisan CV dan Surat Lamaran yang Disesuaikan dengan Kebutuhan Karir Anda menawarkan solusi personal dalam menyusun dokumen lamaran kerja yang tepat sasaran",
         },
     ];
 

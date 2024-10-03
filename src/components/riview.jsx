@@ -48,7 +48,7 @@ const NextArrow = (props) => {
 
 const ReviewSlider = () => {
     const settings = {
-        dots: false, 
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -59,12 +59,12 @@ const ReviewSlider = () => {
 
     return (
         <div className="bg-GreenNom p-14 mt-20 mx-20 relative">
-            <h1 className="text-3xl text-blue-600 text-center">Apa Kata Pengguna Layanan Kami</h1>
+            <h1 className="text-3xl text-green-900 text-center">Apa Kata Pengguna Layanan Kami</h1>
             <Slider {...settings} className="mt-5">
                 {reviews.map((review, index) => (
                     <div key={index} className="flex flex-col items-center text-center px-5">
                         <p className="text-gray-800 max-w-lg mb-4 mx-auto text-center">{review.text}</p>
-                        <h2 className="font-semibold text-blue-600">{review.author}</h2>
+                        <h2 className="font-semibold text-green-900">{review.author}</h2>
                     </div>
                 ))}
             </Slider>

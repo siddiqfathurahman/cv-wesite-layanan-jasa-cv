@@ -11,6 +11,8 @@ export default {
       },
       colors: {
         GreenNom: '#d5ed9f',  
+        Yellowcus: '#ff9100',
+        Redcus: '#ff3131',
       },
     },
   },
