@@ -1,7 +1,7 @@
 const Navbar = () => {
     return (
-        <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-10 bg-Redcus text-white rounded-xl p-4 w-[30%] flex justify-center">
-            <ul className="flex space-x-4">
+        <nav className="fixed bottom-0 left-0 right-0 w-full md:top-4 md:bottom-auto md:left-1/2 md:transform md:-translate-x-1/2 md:w-[40%] bg-Redcus text-white rounded-t-xl md:rounded-xl p-4 z-10">
+            <ul className="flex justify-around md:justify-center space-x-4">
                 <li><a href="#home" className="font-semibold">Home</a></li>
                 <li><a href="#about" className="font-semibold">About</a></li>
                 <li><a href="#testimonials" className="font-semibold">Testimonials</a></li>

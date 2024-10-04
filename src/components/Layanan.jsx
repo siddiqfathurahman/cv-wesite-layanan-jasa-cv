@@ -2,10 +2,10 @@ import Line from './Line';
 import Button from './Button';
 
 const ServiceItem = ({ imgSrc, title, description }) => (
-    <div className='flex items-center mx-14'>
-        <img className="w-14" src={imgSrc} alt="" />
-        <h1 className='text-4xl max-w-72 font-medium pl-5 text-green-900'>{title}</h1>
-        <h2 className='ml-auto max-w-md'>{description}</h2>
+    <div className='flex flex-col md:flex-row items-center mx-4 md:mx-14 my-6'>
+        <img className="w-20 mb-4 md:mb-0 md:w-14" src={imgSrc} alt="" />
+        <h1 className='text-xl md:text-4xl max-w-xs md:max-w-72 font-medium pl-0 md:pl-5 text-green-900'>{title}</h1>
+        <h2 className='mt-4 md:mt-0 md:ml-auto text-sm md:text-base max-w-full md:max-w-md text-center md:text-left'>{description}</h2>
     </div>
 );
 
@@ -34,8 +34,8 @@ const Layanan = () => {
     ];
 
     return (
-        <div>
-            <h1 className="mt-20 text-center text-2xl justify-center text-green-900 font-semibold">Solusi Kami untuk Anda</h1>
+        <div className="px-4 md:px-20">
+            <h1 className="mt-10 text-center text-2xl md:text-4xl justify-center text-green-900 font-semibold">Solusi Kami untuk Anda</h1>
             <Line />
             {services.map((service, index) => (
                 <div key={index}>
