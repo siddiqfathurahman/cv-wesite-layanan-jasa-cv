@@ -9,9 +9,7 @@ const Home = () => {
                     </button>
                 </div>
             </div>
-            <div className="px-4 md:pl-28">
-                <img src="/utama.png" alt="Gambar Utama" className="w-full md:w-[570px] mb-6 md:mb-0" />
-            </div>
+
         </div>
     );
 };
