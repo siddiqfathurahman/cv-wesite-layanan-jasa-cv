@@ -26,6 +26,11 @@ const Layanan = () => {
             title: "CareerBoost ",
             description: "Layanan Paket Revisi dan Optimalisasi CV untuk Profesional dirancang untuk membantu para pekerja yang sudah berpengalaman memperbarui dan menyempurnakan CV mereka agar lebih relevan dengan tuntutan industri saat ini.",
         },
+        {
+            imgSrc: "/4.png",
+            title: "CV.Ku Custom",
+            description: "Layanan Penulisan CV dan Surat Lamaran yang Disesuaikan dengan Kebutuhan Karir Anda menawarkan solusi personal dalam menyusun dokumen lamaran kerja yang tepat sasaran",
+        },
     ];
 
     return (
