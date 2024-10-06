@@ -15,10 +15,7 @@ const Getstartd = ({ title, price }) => (
 
 const Getstarted = () => {
     const services = [
-        {
-            title: "CV-Start",
-            price: "$5",
-        },
+
         {
             title: "CoverMax",
             price: "$10",
