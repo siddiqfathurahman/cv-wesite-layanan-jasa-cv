@@ -2,7 +2,7 @@ import Line from './Line';
 import Button from './Button';
 
 const ServiceItem = ({ imgSrc, title, description }) => (
-    <div className='flex flex-col md:flex-row items-center mx-4 md:mx-14 my-6'>
+    <div className='flex flex-col md:flex-row items-center mx-4 md:mx-14 my-6 font-poppins'>
         <img className="w-20 mb-4 md:mb-0 md:w-14" src={imgSrc} alt="" />
         <h1 className='text-xl md:text-4xl max-w-xs md:max-w-72 font-medium pl-0 md:pl-5 text-green-900'>{title}</h1>
         <h2 className='mt-4 md:mt-0 md:ml-auto text-sm md:text-base max-w-full md:max-w-md text-center md:text-left'>{description}</h2>

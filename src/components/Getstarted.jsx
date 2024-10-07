@@ -34,7 +34,7 @@ const Getstarted = () => {
     ];
 
     return (
-        <div className="mx-4 md:mx-10 mt-10 md:mt-20 p-6 md:p-14">
+        <div className="mx-4 md:mx-10 mt-10 md:mt-20 p-6 md:p-14 font-poppins">
             <h1 className="text-lg md:text-2xl text-center text-green-900 font-semibold">Mari Mulai</h1>
             <p className="text-center mx-auto max-w-xs md:max-w-lg pt-4">Klik di sini untuk menambahkan teks Anda sendiri dan sesuaikan sesuai kebutuhan dalam penulisan CV Anda.</p>
             <Line />
