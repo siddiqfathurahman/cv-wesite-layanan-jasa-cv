@@ -17,19 +17,19 @@ const Getstarted = () => {
     const services = [
         {
             title: "CV-Start",
-            price: "$5",
+            price: "Rp. 49.000",
         },
         {
             title: "CoverMax",
-            price: "$10",
+            price: "Rp. 69.000",
         },
         {
             title: "CareerBoost",
-            price: "$11",
+            price: "Rp. 89.000",
         },
         {
             title: "CV.Ku Custom",
-            price: "$15",
+            price: "Rp. 99.000",
         },
     ];
 
