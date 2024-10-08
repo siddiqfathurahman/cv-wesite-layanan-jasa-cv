@@ -45,7 +45,7 @@ const Modal = ({ isOpen, onClose, serviceTitle, servicePrice }) => {
     };
 
     return (
-<div>
+    <div>
     <div className={`fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center ${isOpen ? 'block' : 'hidden'}`} onClick={onClose}>
         <div className="bg-white z-50 p-5 rounded-lg shadow-lg w-11/12 md:w-1/3 max-w-lg" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-4"> {/* Tambahkan flexbox di sini */}
@@ -186,20 +186,24 @@ const Getstarted = () => {
         <div id="order" className="mx-4 md:mx-10 mt-10 md:mt-20 p-6 md:p-14 font-poppins">
             <h1 className="text-lg md:text-2xl text-center text-green-900 font-semibold">Mari Mulai</h1>
             <p className="text-center mx-auto max-w-xs md:max-w-lg text-gray-700 mt-2">Pesan layanan pembuatan CV dan surat lamaran yang siap saing untuk memudahkan anda dalam mencari pekerjaan impian.</p>
+            
             <div className="flex flex-col space-y-4 mt-8">
                 {services.map((service, index) => (
-                    <Getstartd 
-                        key={index}
-                        title={service.title} 
-                        price={service.price}
-                        onOpenModal={() => {
-                            setSelectedService(service.title);
-                            setSelectedPrice(service.price);
-                            setIsModalOpen(true);
-                        }}
-                    />
+                    <div key={index}>
+                        <Line /> 
+                        <Getstartd 
+                            title={service.title} 
+                            price={service.price}
+                            onOpenModal={() => {
+                                setSelectedService(service.title);
+                                setSelectedPrice(service.price);
+                                setIsModalOpen(true);
+                            }}
+                        />
+                    </div>
                 ))}
             </div>
+            <Line /> 
             <Modal 
                 isOpen={isModalOpen} 
                 onClose={() => setIsModalOpen(false)} 
