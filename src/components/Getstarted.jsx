@@ -16,22 +16,21 @@ const Getstartd = ({ title, price, onOpenModal }) => (
     </div>
 );
 
-const Modal = ({ isOpen, onClose, serviceTitle }) => {
+const Modal = ({ isOpen, onClose, serviceTitle, servicePrice }) => {
     const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
     const [position, setPosition] = useState('');
     const [experience, setExperience] = useState('');
     const [education, setEducation] = useState('');
     const [skills, setSkills] = useState('');
+    const [selectedService, setSelectedService] = useState(serviceTitle);
     const [showConfirmation, setShowConfirmation] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const message = `Haii Admin,\n\nSelamat Siang! Saya sangat bersemangat untuk memulai perjalanan karier saya dan ingin memesan jasa pembuatan CV. Berikut detail yang ingin saya sertakan:\n\n**Nama Lengkap:** ${name}\n**Posisi yang Dilamar:** ${position}\n**Pengalaman Kerja:** ${experience}\n**Pendidikan Terakhir:** ${education}\n**Keahlian Khusus:** ${skills}\n\nJika ada format atau informasi tambahan yang diperlukan, mohon informasikan. Terima kasih atas bantuannya! Semoga kita bisa menciptakan CV yang luar biasa bersama.`;
+        const message = `Haii Admin,\n\nSelamat Siang! Saya sangat bersemangat untuk memulai perjalanan karier saya dan ingin memesan jasa pembuatan CV. Berikut detail yang ingin saya sertakan:\n\n**Nama Lengkap:** ${name}\n**Layanan yang Dipilih:** ${selectedService}\n**Harga yang Harus Dibayar:** ${servicePrice}\n**Posisi yang Dilamar:** ${position}\n**Pengalaman Kerja:** ${experience}\n**Pendidikan Terakhir:** ${education}\n**Keahlian Khusus:** ${skills}\n\nJika ada format atau informasi tambahan yang diperlukan, mohon informasikan. Terima kasih atas bantuannya! Semoga kita bisa menciptakan CV yang luar biasa bersama.`;
         const whatsappUrl = `https://wa.me/6285878954625?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
         setName('');
-        setPhone('');
         setPosition('');
         setExperience('');
         setEducation('');
@@ -44,10 +43,10 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
     return (
         <div>
             <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center ${isOpen ? 'block' : 'hidden'}`} onClick={onClose}>
-                <div className="bg-white p-5 rounded-lg shadow-lg w-11/12 md:w-1/3 max-w-lg" onClick={(e) => e.stopPropagation()}>
-                    <button className="absolute top-2 right-2 text-xl" onClick={onClose}>×</button>
+                <div className="bg-white z-50 p-5 rounded-lg shadow-lg w-11/12 md:w-1/3 max-w-lg" onClick={(e) => e.stopPropagation()}>
                     <h2 className="text-lg font-semibold mb-2">Format Order</h2>
                     <form onSubmit={handleSubmit}>
+                        <button className="absolute top-2 right-2 text-xl" onClick={onClose}>×</button>
                         <div className="mb-4">
                             <label className="block mb-1">Nama:</label>
                             <input 
@@ -59,14 +58,17 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label className="block mb-1">Nomor Telepon:</label>
-                            <input 
-                                type="tel" 
-                                value={phone} 
-                                onChange={(e) => setPhone(e.target.value)} 
+                            <label className="block mb-1">Layanan yang Dipilih:</label>
+                            <select 
+                                value={selectedService} 
+                                onChange={(e) => setSelectedService(e.target.value)} 
                                 className="border rounded w-full p-2"
-                                required
-                            />
+                            >
+                                <option value="CV-Start">CV-Start</option>
+                                <option value="CoverMax">CoverMax</option>
+                                <option value="CareerBoost">CareerBoost</option>
+                                <option value="CV.Ku Custom">CV.Ku Custom</option>
+                            </select>
                         </div>
                         <div className="mb-4">
                             <label className="block mb-1">Posisi yang Dilamar:</label>
@@ -126,6 +128,7 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
 const Getstarted = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedService, setSelectedService] = useState('');
+    const [selectedPrice, setSelectedPrice] = useState('');
 
     const services = [
         {
@@ -158,13 +161,14 @@ const Getstarted = () => {
                         price={service.price} 
                         onOpenModal={() => {
                             setSelectedService(service.title);
+                            setSelectedPrice(service.price);
                             setIsModalOpen(true);
                         }} 
                     />
                     <Line />
                 </div>
             ))}
-            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} serviceTitle={selectedService} />
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} serviceTitle={selectedService} servicePrice={selectedPrice} />
         </div>
     );
 };

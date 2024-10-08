@@ -6,7 +6,7 @@ const Navbar = () => {
     const offsetValue = 90; 
 
     return (
-        <nav className="bg-black fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 rounded-lg shadow-lg w-[90%] md:w-auto">
+        <nav className="bg-black fixed bottom-4 left-1/2 transform -translate-x-1/2 z-30 rounded-lg shadow-lg w-[90%] md:w-auto">
             <div className="flex items-center justify-between p-2 gap-4">
                 <div className="flex-shrink-0 bg-white rounded-md">
                     <img
