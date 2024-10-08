@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Line from './Line';
-import Button from './Button'; // Pastikan Anda memiliki Button jika digunakan
 
 const Getstartd = ({ title, price, onOpenModal }) => (
     <div className='flex flex-col md:flex-row items-center justify-between mx-4 md:mx-14 p-4 rounded-lg'>
@@ -17,14 +16,18 @@ const Getstartd = ({ title, price, onOpenModal }) => (
     </div>
 );
 
-const Modal = ({ isOpen, onClose, onSubmit }) => {
+const Modal = ({ isOpen, onClose, serviceTitle }) => {
     const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [position, setPosition] = useState('');
+    const [experience, setExperience] = useState('');
+    const [education, setEducation] = useState('');
+    const [skills, setSkills] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Format pesan yang ingin dikirim
-        const message = `Nama: ${name}\nEmail: ${email}`;
+        const message = `Haii Admin,\n\nSelamat Siang! Saya sangat bersemangat untuk memulai perjalanan karier saya dan ingin memesan jasa pembuatan CV. Berikut detail yang ingin saya sertakan:\n\nNama Lengkap: ${name}\nPosisi yang Dilamar: ${position}\nPengalaman Kerja: ${experience}\nPendidikan Terakhir: ${education}\nKeahlian Khusus: ${skills}\n\nJika ada format atau informasi tambahan yang diperlukan, mohon informasikan. Terima kasih atas bantuannya! Semoga kita bisa menciptakan CV yang luar biasa bersama.`;
         const whatsappUrl = `https://wa.me/6285878954625?text=${encodeURIComponent(message)}`;
         
         // Buka URL WhatsApp di tab baru
@@ -32,7 +35,11 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
 
         // Reset form dan tutup modal
         setName('');
-        setEmail('');
+        setPhone('');
+        setPosition('');
+        setExperience('');
+        setEducation('');
+        setSkills('');
         onClose();
     };
 
@@ -52,11 +59,51 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
                         />
                     </div>
                     <div className="mb-4">
-                        <label className="block mb-1">Email:</label>
+                        <label className="block mb-1">Nomor Telepon:</label>
                         <input 
-                            type="email" 
-                            value={email} 
-                            onChange={(e) => setEmail(e.target.value)} 
+                            type="tel" 
+                            value={phone} 
+                            onChange={(e) => setPhone(e.target.value)} 
+                            className="border rounded w-full p-2"
+                            required
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block mb-1">Posisi yang Dilamar:</label>
+                        <input 
+                            type="text" 
+                            value={position} 
+                            onChange={(e) => setPosition(e.target.value)} 
+                            className="border rounded w-full p-2"
+                            required
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block mb-1">Pengalaman Kerja:</label>
+                        <input 
+                            type="text" 
+                            value={experience} 
+                            onChange={(e) => setExperience(e.target.value)} 
+                            className="border rounded w-full p-2"
+                            required
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block mb-1">Pendidikan Terakhir:</label>
+                        <input 
+                            type="text" 
+                            value={education} 
+                            onChange={(e) => setEducation(e.target.value)} 
+                            className="border rounded w-full p-2"
+                            required
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label className="block mb-1">Keahlian Khusus:</label>
+                        <input 
+                            type="text" 
+                            value={skills} 
+                            onChange={(e) => setSkills(e.target.value)} 
                             className="border rounded w-full p-2"
                             required
                         />
@@ -73,6 +120,7 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
 
 const Getstarted = () => {
     const [isModalOpen, setIsModalOpen] = useState(false); // State untuk modal
+    const [selectedService, setSelectedService] = useState(''); // State untuk layanan yang dipilih
 
     const services = [
         {
@@ -103,12 +151,15 @@ const Getstarted = () => {
                     <Getstartd 
                         title={service.title} 
                         price={service.price} 
-                        onOpenModal={() => setIsModalOpen(true)} // Buka modal saat tombol di klik
+                        onOpenModal={() => {
+                            setSelectedService(service.title); // Set layanan yang dipilih
+                            setIsModalOpen(true); // Buka modal
+                        }} // Buka modal saat tombol di klik
                     />
                     <Line />
                 </div>
             ))}
-            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} serviceTitle={selectedService} />
         </div>
     );
 };
