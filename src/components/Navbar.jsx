@@ -47,7 +47,7 @@ const Navbar = () => {
                         className="text-white flex items-center justify-center border border-white bg-transparent px-2 md:px-3 py-1 md:py-2 rounded-md text-center tracking-wide cursor-pointer"
                     >
                         <AiOutlineMessage className="h-6 w-6 md:hidden" /> 
-                        <span className="hidden md:inline">Testimonial</span> 
+                        <span className="hidden md:inline">Riview</span> 
                     </Link>
 
                     <Link to="contact" smooth={true} duration={500} className="text-white flex items-center justify-center border border-white bg-transparent px-2 md:px-3 py-1 md:py-2 rounded-md text-center tracking-wide cursor-pointer">

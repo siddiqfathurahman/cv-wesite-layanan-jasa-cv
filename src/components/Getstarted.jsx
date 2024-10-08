@@ -8,7 +8,7 @@ const Getstartd = ({ title, price, onOpenModal }) => (
             <h2 className='text-lg md:text-xl text-green-900 md:mr-32'>{price}</h2>
             <button 
                 className="mt-2 md:mt-0 py-2 md:py-3 items-center justify-center border-2 md:border-4 hover:bg-green-600 hover:text-white px-8 md:px-16 text-green-900 border border-green-600"
-                onClick={onOpenModal} // Buka modal saat tombol diklik
+                onClick={onOpenModal}
             >
                 Booking CV
             </button>
@@ -23,18 +23,13 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
     const [experience, setExperience] = useState('');
     const [education, setEducation] = useState('');
     const [skills, setSkills] = useState('');
-    const [showConfirmation, setShowConfirmation] = useState(false); // State untuk menampilkan popup konfirmasi
+    const [showConfirmation, setShowConfirmation] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Format pesan yang ingin dikirim
         const message = `Haii Admin,\n\nSelamat Siang! Saya sangat bersemangat untuk memulai perjalanan karier saya dan ingin memesan jasa pembuatan CV. Berikut detail yang ingin saya sertakan:\n\n**Nama Lengkap:** ${name}\n**Posisi yang Dilamar:** ${position}\n**Pengalaman Kerja:** ${experience}\n**Pendidikan Terakhir:** ${education}\n**Keahlian Khusus:** ${skills}\n\nJika ada format atau informasi tambahan yang diperlukan, mohon informasikan. Terima kasih atas bantuannya! Semoga kita bisa menciptakan CV yang luar biasa bersama.`;
         const whatsappUrl = `https://wa.me/6285878954625?text=${encodeURIComponent(message)}`;
-        
-        // Buka URL WhatsApp di tab baru
         window.open(whatsappUrl, '_blank');
-
-        // Reset form dan tutup modal
         setName('');
         setPhone('');
         setPosition('');
@@ -42,19 +37,15 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
         setEducation('');
         setSkills('');
         onClose();
-        
-        // Tampilkan popup konfirmasi
         setShowConfirmation(true);
-        
-        // Sembunyikan popup setelah 10 detik
         setTimeout(() => setShowConfirmation(false), 10000);
     };
 
     return (
         <div>
-            {/* Overlay */}
-            <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center ${isOpen ? 'block' : 'hidden'}`}>
-                <div className="bg-white p-5 rounded-lg shadow-lg w-11/12 md:w-1/3 max-w-lg">
+            <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center ${isOpen ? 'block' : 'hidden'}`} onClick={onClose}>
+                <div className="bg-white p-5 rounded-lg shadow-lg w-11/12 md:w-1/3 max-w-lg" onClick={(e) => e.stopPropagation()}>
+                    <button className="absolute top-2 right-2 text-xl" onClick={onClose}>×</button>
                     <h2 className="text-lg font-semibold mb-2">Format Order</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
@@ -120,11 +111,9 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
                         <button type="submit" className="bg-green-600 text-white py-2 px-4 rounded">
                             Kirim
                         </button>
-                        <button type="button" className="mt-2 ml-2 text-gray-600" onClick={onClose}>Tutup</button>
                     </form>
                 </div>
             </div>
-            {/* Popup Konfirmasi */}
             {showConfirmation && (
                 <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-600 text-white p-4 rounded-lg shadow-lg z-50 w-11/12 md:w-1/3 max-w-lg">
                     <p className="text-center">Order akan segera diproses oleh admin. Terima kasih telah menggunakan layanan <strong>CV.ku!</strong></p>
@@ -135,8 +124,8 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
 };
 
 const Getstarted = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false); // State untuk modal
-    const [selectedService, setSelectedService] = useState(''); // State untuk layanan yang dipilih
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedService, setSelectedService] = useState('');
 
     const services = [
         {
@@ -168,9 +157,9 @@ const Getstarted = () => {
                         title={service.title} 
                         price={service.price} 
                         onOpenModal={() => {
-                            setSelectedService(service.title); // Set layanan yang dipilih
-                            setIsModalOpen(true); // Buka modal
-                        }} // Buka modal saat tombol di klik
+                            setSelectedService(service.title);
+                            setIsModalOpen(true);
+                        }} 
                     />
                     <Line />
                 </div>
