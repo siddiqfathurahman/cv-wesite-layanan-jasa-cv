@@ -23,11 +23,12 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
     const [experience, setExperience] = useState('');
     const [education, setEducation] = useState('');
     const [skills, setSkills] = useState('');
+    const [showConfirmation, setShowConfirmation] = useState(false); // State untuk menampilkan popup konfirmasi
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Format pesan yang ingin dikirim
-        const message = `Haii Admin,\n\nSelamat Siang! Saya sangat bersemangat untuk memulai perjalanan karier saya dan ingin memesan jasa pembuatan CV. Berikut detail yang ingin saya sertakan:\n\nNama Lengkap: ${name}\nPosisi yang Dilamar: ${position}\nPengalaman Kerja: ${experience}\nPendidikan Terakhir: ${education}\nKeahlian Khusus: ${skills}\n\nJika ada format atau informasi tambahan yang diperlukan, mohon informasikan. Terima kasih atas bantuannya! Semoga kita bisa menciptakan CV yang luar biasa bersama.`;
+        const message = `Haii Admin,\n\nSelamat Siang! Saya sangat bersemangat untuk memulai perjalanan karier saya dan ingin memesan jasa pembuatan CV. Berikut detail yang ingin saya sertakan:\n\n**Nama Lengkap:** ${name}\n**Posisi yang Dilamar:** ${position}\n**Pengalaman Kerja:** ${experience}\n**Pendidikan Terakhir:** ${education}\n**Keahlian Khusus:** ${skills}\n\nJika ada format atau informasi tambahan yang diperlukan, mohon informasikan. Terima kasih atas bantuannya! Semoga kita bisa menciptakan CV yang luar biasa bersama.`;
         const whatsappUrl = `https://wa.me/6285878954625?text=${encodeURIComponent(message)}`;
         
         // Buka URL WhatsApp di tab baru
@@ -41,79 +42,93 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
         setEducation('');
         setSkills('');
         onClose();
+        
+        // Tampilkan popup konfirmasi
+        setShowConfirmation(true);
+        
+        // Sembunyikan popup setelah beberapa detik
+        setTimeout(() => setShowConfirmation(false), 5000);
     };
 
     return (
-        <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center ${isOpen ? 'block' : 'hidden'}`}>
-            <div className="bg-white p-5 rounded-lg shadow-lg">
-                <h2 className="text-lg font-semibold mb-2">Format Order</h2>
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                        <label className="block mb-1">Nama:</label>
-                        <input 
-                            type="text" 
-                            value={name} 
-                            onChange={(e) => setName(e.target.value)} 
-                            className="border rounded w-full p-2"
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block mb-1">Nomor Telepon:</label>
-                        <input 
-                            type="tel" 
-                            value={phone} 
-                            onChange={(e) => setPhone(e.target.value)} 
-                            className="border rounded w-full p-2"
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block mb-1">Posisi yang Dilamar:</label>
-                        <input 
-                            type="text" 
-                            value={position} 
-                            onChange={(e) => setPosition(e.target.value)} 
-                            className="border rounded w-full p-2"
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block mb-1">Pengalaman Kerja:</label>
-                        <input 
-                            type="text" 
-                            value={experience} 
-                            onChange={(e) => setExperience(e.target.value)} 
-                            className="border rounded w-full p-2"
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block mb-1">Pendidikan Terakhir:</label>
-                        <input 
-                            type="text" 
-                            value={education} 
-                            onChange={(e) => setEducation(e.target.value)} 
-                            className="border rounded w-full p-2"
-                            required
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block mb-1">Keahlian Khusus:</label>
-                        <input 
-                            type="text" 
-                            value={skills} 
-                            onChange={(e) => setSkills(e.target.value)} 
-                            className="border rounded w-full p-2"
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="bg-green-600 text-white py-2 px-4 rounded">
-                        Kirim
-                    </button>
-                    <button type="button" className="mt-2 ml-2 text-gray-600" onClick={onClose}>Tutup</button>
-                </form>
+        <div>
+            <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center ${isOpen ? 'block' : 'hidden'}`}>
+                <div className="bg-white p-5 rounded-lg shadow-lg">
+                    <h2 className="text-lg font-semibold mb-2">Format Order</h2>
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-4">
+                            <label className="block mb-1">Nama:</label>
+                            <input 
+                                type="text" 
+                                value={name} 
+                                onChange={(e) => setName(e.target.value)} 
+                                className="border rounded w-full p-2"
+                                required
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block mb-1">Nomor Telepon:</label>
+                            <input 
+                                type="tel" 
+                                value={phone} 
+                                onChange={(e) => setPhone(e.target.value)} 
+                                className="border rounded w-full p-2"
+                                required
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block mb-1">Posisi yang Dilamar:</label>
+                            <input 
+                                type="text" 
+                                value={position} 
+                                onChange={(e) => setPosition(e.target.value)} 
+                                className="border rounded w-full p-2"
+                                required
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block mb-1">Pengalaman Kerja:</label>
+                            <input 
+                                type="text" 
+                                value={experience} 
+                                onChange={(e) => setExperience(e.target.value)} 
+                                className="border rounded w-full p-2"
+                                required
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block mb-1">Pendidikan Terakhir:</label>
+                            <input 
+                                type="text" 
+                                value={education} 
+                                onChange={(e) => setEducation(e.target.value)} 
+                                className="border rounded w-full p-2"
+                                required
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block mb-1">Keahlian Khusus:</label>
+                            <input 
+                                type="text" 
+                                value={skills} 
+                                onChange={(e) => setSkills(e.target.value)} 
+                                className="border rounded w-full p-2"
+                                required
+                            />
+                        </div>
+                        <button type="submit" className="bg-green-600 text-white py-2 px-4 rounded">
+                            Kirim
+                        </button>
+                        <button type="button" className="mt-2 ml-2 text-gray-600" onClick={onClose}>Tutup</button>
+                    </form>
+                </div>
             </div>
+            {/* Popup Konfirmasi */}
+            {showConfirmation && (
+                <div className="fixed top-0 left-1/2 transform -translate-x-1/2 bg-green-600 text-white p-4 rounded-lg shadow-lg z-50 mt-4">
+                    <p>Order akan segera diproses oleh admin. Terima kasih telah menggunakan layanan CV.ku!</p>
+                </div>
+            )}
         </div>
     );
 };
