@@ -28,7 +28,7 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Format pesan yang ingin dikirim
-        const message = `Haii Admin,\n\nSelamat Siang! Saya sangat bersemangat untuk memulai perjalanan karier saya dan ingin memesan jasa pembuatan CV. Berikut detail yang ingin saya sertakan:\n\n**Nama Lengkap:** ${name}\n**Posisi yang Dilamar:** ${position}\n**Pengalaman Kerja:** ${experience}\n**Pendidikan Terakhir:** ${education}\n**Keahlian Khusus:** ${skills}\n\nJika ada format atau informasi tambahan yang diperlukan, mohon informasikan. Terima kasih atas bantuannya! Semoga kita bisa menciptakan CV yang luar biasa bersama.`;
+        const message = `Haii Admin,\n\nSelamat Siang! Saya sangat bersemangat untuk memulai perjalanan karier saya dan ingin memesan jasa pembuatan CV. Berikut detail yang ingin saya sertakan:\n\n*Nama Lengkap:* ${name}\n*Posisi yang Dilamar:* ${position}\n*Pengalaman Kerja:* ${experience}\n*Pendidikan Terakhir:* ${education}\n*Keahlian Khusus:* ${skills}\n\nJika ada format atau informasi tambahan yang diperlukan, mohon informasikan. Terima kasih atas bantuannya! Semoga kita bisa menciptakan CV yang luar biasa bersama.`;
         const whatsappUrl = `https://wa.me/6285878954625?text=${encodeURIComponent(message)}`;
         
         // Buka URL WhatsApp di tab baru
