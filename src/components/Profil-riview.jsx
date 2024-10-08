@@ -1,6 +1,6 @@
 const Profil = () => {
     return (
-        <div className="flex flex-col md:flex-row items-center justify-center mt-10 px-4 md:px-24 font-poppins">
+        <div id="About" className="flex flex-col md:flex-row items-center justify-center mt-10 px-4 md:px-24 font-poppins">
             <div className="bg-green-600 p-8 md:p-10 max-w-full md:max-w-sm flex flex-col justify-center h-auto md:h-[515px]">
                 <h1 className="text-xl md:text-2xl text-white font-bold">Hello, saya George!</h1>
                 <h2 className="font-semibold text-lg md:text-2xl text-white mt-4 md:mt-2">Siap membantu Anda membawa CV dan surat lamaran Anda ke level yang lebih tinggi</h2>

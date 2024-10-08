@@ -34,7 +34,7 @@ const Layanan = () => {
     ];
 
     return (
-        <div className="px-4 md:px-20">
+        <div id="layanan" className="px-4 md:px-20">
             <h1 className="mt-10 text-center text-2xl md:text-4xl justify-center text-green-900 font-semibold">Solusi Kami untuk Anda</h1>
             <Line />
             {services.map((service, index) => (

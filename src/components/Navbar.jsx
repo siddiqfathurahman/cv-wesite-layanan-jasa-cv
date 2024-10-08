@@ -2,11 +2,9 @@ import React from 'react';
 import { AiOutlineHome, AiOutlineUser, AiOutlineMessage, AiOutlinePhone } from 'react-icons/ai'; // Import icons
 
 const Navbar = () => {
-  return (
+    return (
     <nav className="bg-black fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 rounded-lg shadow-lg w-[90%] md:w-auto">
         <div className="flex items-center justify-between p-2 gap-4">
-        
-        
         <div className="flex-shrink-0 bg-white rounded-md">
             <img
             src="/cv.ku.png" 
