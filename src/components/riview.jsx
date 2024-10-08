@@ -58,7 +58,7 @@ const ReviewSlider = () => {
     };
 
     return (
-        <div id="testimonials" className="bg-GreenNom p-6 md:p-14 mt-10 md:mt-20 mx-4 md:mx-20 relative font-poppins">
+        <div id="testimonial" className="bg-GreenNom p-6 md:p-14 mt-10 md:mt-20 mx-4 md:mx-20 relative font-poppins">
             <h1 className="text-2xl md:text-3xl text-green-900 text-center">Apa Kata Pengguna Layanan Kami</h1>
             <Slider {...settings} className="mt-5">
                 {reviews.map((review, index) => (
