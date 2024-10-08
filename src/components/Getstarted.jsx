@@ -28,7 +28,7 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Format pesan yang ingin dikirim
-        const message = `Haii Admin,\n\nSelamat Siang! Saya sangat bersemangat untuk memulai perjalanan karier saya dan ingin memesan jasa pembuatan CV. Berikut detail yang ingin saya sertakan:\n\n*Nama Lengkap:* ${name}\n*Posisi yang Dilamar:* ${position}\n*Pengalaman Kerja:* ${experience}\n*Pendidikan Terakhir:* ${education}\n*Keahlian Khusus:* ${skills}\n\nJika ada format atau informasi tambahan yang diperlukan, mohon informasikan. Terima kasih atas bantuannya! Semoga kita bisa menciptakan CV yang luar biasa bersama.`;
+        const message = `Haii Admin,\n\nSelamat Siang! Saya sangat bersemangat untuk memulai perjalanan karier saya dan ingin memesan jasa pembuatan CV. Berikut detail yang ingin saya sertakan:\n\n**Nama Lengkap:** ${name}\n**Posisi yang Dilamar:** ${position}\n**Pengalaman Kerja:** ${experience}\n**Pendidikan Terakhir:** ${education}\n**Keahlian Khusus:** ${skills}\n\nJika ada format atau informasi tambahan yang diperlukan, mohon informasikan. Terima kasih atas bantuannya! Semoga kita bisa menciptakan CV yang luar biasa bersama.`;
         const whatsappUrl = `https://wa.me/6285878954625?text=${encodeURIComponent(message)}`;
         
         // Buka URL WhatsApp di tab baru
@@ -46,14 +46,15 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
         // Tampilkan popup konfirmasi
         setShowConfirmation(true);
         
-        // Sembunyikan popup setelah beberapa detik
-        setTimeout(() => setShowConfirmation(false), 5000);
+        // Sembunyikan popup setelah 10 detik
+        setTimeout(() => setShowConfirmation(false), 10000);
     };
 
     return (
         <div>
+            {/* Overlay */}
             <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center ${isOpen ? 'block' : 'hidden'}`}>
-                <div className="bg-white p-5 rounded-lg shadow-lg">
+                <div className="bg-white p-5 rounded-lg shadow-lg w-11/12 md:w-1/3 max-w-lg">
                     <h2 className="text-lg font-semibold mb-2">Format Order</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
@@ -125,8 +126,8 @@ const Modal = ({ isOpen, onClose, serviceTitle }) => {
             </div>
             {/* Popup Konfirmasi */}
             {showConfirmation && (
-                <div className="fixed top-0 left-1/2 transform -translate-x-1/2 bg-green-600 text-white p-4 rounded-lg shadow-lg z-50 mt-4">
-                    <p>Order akan segera diproses oleh admin. Terima kasih telah menggunakan layanan CV.ku!</p>
+                <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-600 text-white p-4 rounded-lg shadow-lg z-50 w-11/12 md:w-1/3 max-w-lg">
+                    <p className="text-center">Order akan segera diproses oleh admin. Terima kasih telah menggunakan layanan <strong>CV.ku!</strong></p>
                 </div>
             )}
         </div>
