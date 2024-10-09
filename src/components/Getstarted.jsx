@@ -41,122 +41,123 @@ const Modal = ({ isOpen, onClose, serviceTitle, servicePrice }) => {
         setEmail('');
         onClose();
         setShowConfirmation(true);
-        setTimeout(() => setShowConfirmation(false), 10000);
     };
 
     return (
-    <div>
-    <div className={`fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center ${isOpen ? 'block' : 'hidden'}`} onClick={onClose}>
-        <div className="bg-white z-50 p-5 rounded-lg shadow-lg w-11/12 md:w-1/3 max-w-lg" onClick={(e) => e.stopPropagation()}>
-            <div className="flex justify-between items-center mb-4"> {/* Tambahkan flexbox di sini */}
-                <h2 className="text-lg font-semibold">Format Order</h2>
-                <button className="text-xl" onClick={onClose}>×</button> {/* Pindahkan tombol ke sini */}
+        <div>
+            <div className={`fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center ${isOpen ? 'block' : 'hidden'}`} onClick={onClose}>
+                <div className="bg-white z-50 p-5 rounded-lg shadow-lg w-11/12 md:w-1/3 max-w-lg" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="text-lg font-semibold">Format Order</h2>
+                        <button className="text-xl" onClick={onClose}>×</button>
+                    </div>
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-4">
+                            <label className="block mb-1">Nama:</label>
+                            <input 
+                                type="text" 
+                                value={name} 
+                                onChange={(e) => setName(e.target.value)} 
+                                className="border rounded w-full p-2"
+                                required
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block mb-1">Layanan yang Dipilih:</label>
+                            <select 
+                                value={selectedService} 
+                                onChange={(e) => setSelectedService(e.target.value)} 
+                                className="border rounded w-full p-2"
+                            >
+                                <option value="CV-Start">CV-Start</option>
+                                <option value="CoverMax">CoverMax</option>
+                                <option value="CareerBoost">CareerBoost</option>
+                                <option value="CV.Ku Custom">CV.Ku Custom</option>
+                            </select>
+                        </div>
+                        <div className="flex flex-col md:flex-row md:space-x-4 mb-4">
+                            <div className="md:w-1/2">
+                                <label className="block mb-1">Nomor Telepon:</label>
+                                <input 
+                                    type="tel" 
+                                    value={phone} 
+                                    onChange={(e) => setPhone(e.target.value)} 
+                                    className="border rounded w-full p-2"
+                                    required
+                                />
+                            </div>
+                            <div className="md:w-1/2">
+                                <label className="block mb-1">Email:</label>
+                                <input 
+                                    type="email" 
+                                    value={email} 
+                                    onChange={(e) => setEmail(e.target.value)} 
+                                    className="border rounded w-full p-2"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="flex flex-col md:flex-row md:space-x-4 mb-4">
+                            <div className="md:w-1/2">
+                                <label className="block mb-1">Posisi yang Dilamar:</label>
+                                <input 
+                                    type="text" 
+                                    value={position} 
+                                    onChange={(e) => setPosition(e.target.value)} 
+                                    className="border rounded w-full p-2"
+                                    required
+                                />
+                            </div>
+                            <div className="md:w-1/2">
+                                <label className="block mb-1">Pengalaman Kerja:</label>
+                                <input 
+                                    type="text" 
+                                    value={experience} 
+                                    onChange={(e) => setExperience(e.target.value)} 
+                                    className="border rounded w-full p-2"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="flex flex-col md:flex-row md:space-x-4 mb-4">
+                            <div className="md:w-1/2">
+                                <label className="block mb-1">Pendidikan Terakhir:</label>
+                                <input 
+                                    type="text" 
+                                    value={education} 
+                                    onChange={(e) => setEducation(e.target.value)} 
+                                    className="border rounded w-full p-2"
+                                    required
+                                />
+                            </div>
+                            <div className="md:w-1/2">
+                                <label className="block mb-1">Keahlian Khusus:</label>
+                                <input 
+                                    type="text" 
+                                    value={skills} 
+                                    onChange={(e) => setSkills(e.target.value)} 
+                                    className="border rounded w-full p-2"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <button type="submit" className="bg-green-600 text-white py-2 px-4 w-full rounded">
+                            Kirim
+                        </button>
+                    </form>
+                </div>
             </div>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-4">
-                    <label className="block mb-1">Nama:</label>
-                    <input 
-                        type="text" 
-                        value={name} 
-                        onChange={(e) => setName(e.target.value)} 
-                        className="border rounded w-full p-2"
-                        required
-                    />
+            {showConfirmation && (
+                <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-green-600 p-4 rounded-lg shadow-lg z-50 w-11/12 md:w-1/3 max-w-lg">
+                    <div className="flex justify-between items-center">
+                        <h1 className="text-center font-bold text-2xl">Terimakasih Telah Menggunakan Layanan CV.KU</h1>
+                        <button className="text-xl" onClick={() => setShowConfirmation(false)}>×</button>
+                    </div>
+                    <img src="/check-icon.png" alt="" className="mx-auto py-2 w-36"/>
+                    <p className="text-center">Order akan segera diproses oleh admin.</p>
                 </div>
-                <div className="mb-4">
-                    <label className="block mb-1">Layanan yang Dipilih:</label>
-                    <select 
-                        value={selectedService} 
-                        onChange={(e) => setSelectedService(e.target.value)} 
-                        className="border rounded w-full p-2"
-                    >
-                        <option value="CV-Start">CV-Start</option>
-                        <option value="CoverMax">CoverMax</option>
-                        <option value="CareerBoost">CareerBoost</option>
-                        <option value="CV.Ku Custom">CV.Ku Custom</option>
-                    </select>
-                </div>
-                <div className="flex flex-col md:flex-row md:space-x-4 mb-4">
-                    <div className="md:w-1/2">
-                        <label className="block mb-1">Nomor Telepon:</label>
-                        <input 
-                            type="tel" 
-                            value={phone} 
-                            onChange={(e) => setPhone(e.target.value)} 
-                            className="border rounded w-full p-2"
-                            required
-                        />
-                    </div>
-                    <div className="md:w-1/2">
-                        <label className="block mb-1">Email:</label>
-                        <input 
-                            type="email" 
-                            value={email} 
-                            onChange={(e) => setEmail(e.target.value)} 
-                            className="border rounded w-full p-2"
-                            required
-                        />
-                    </div>
-                </div>
-                <div className="flex flex-col md:flex-row md:space-x-4 mb-4">
-                    <div className="md:w-1/2">
-                        <label className="block mb-1">Posisi yang Dilamar:</label>
-                        <input 
-                            type="text" 
-                            value={position} 
-                            onChange={(e) => setPosition(e.target.value)} 
-                            className="border rounded w-full p-2"
-                            required
-                        />
-                    </div>
-                    <div className="md:w-1/2">
-                        <label className="block mb-1">Pengalaman Kerja:</label>
-                        <input 
-                            type="text" 
-                            value={experience} 
-                            onChange={(e) => setExperience(e.target.value)} 
-                            className="border rounded w-full p-2"
-                            required
-                        />
-                    </div>
-                </div>
-                <div className="flex flex-col md:flex-row md:space-x-4 mb-4">
-                    <div className="md:w-1/2">
-                        <label className="block mb-1">Pendidikan Terakhir:</label>
-                        <input 
-                            type="text" 
-                            value={education} 
-                            onChange={(e) => setEducation(e.target.value)} 
-                            className="border rounded w-full p-2"
-                            required
-                        />
-                    </div>
-                    <div className="md:w-1/2">
-                        <label className="block mb-1">Keahlian Khusus:</label>
-                        <input 
-                            type="text" 
-                            value={skills} 
-                            onChange={(e) => setSkills(e.target.value)} 
-                            className="border rounded w-full p-2"
-                            required
-                        />
-                    </div>
-                </div>
-                <button type="submit" className="bg-green-600 text-white py-2 px-4 w-full rounded">
-                    Kirim
-                </button>
-            </form>
+            )}
         </div>
-    </div>
-    {showConfirmation && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 shadow-lg -translate-y-1/2 bg-white text-green-600 p-4 rounded-lg shadow-lg z-50 w-11/12 md:w-1/3 max-w-lg">
-            <h1 className="text-center font-bold text-2xl">Terimakasih Telah Menggunakan Layanan CV.KU</h1>
-            <img src="/check-icon.png" alt="" className="mx-auto py-2 w-36"/>
-            <p className="text-center">Order akan segera diproses oleh admin.</p>
-        </div>
-    )}
-</div>
-
     );
 };
 
@@ -186,30 +187,24 @@ const Getstarted = () => {
 
     return (
         <div id="order" className="mx-4 md:mx-10 mt-10 md:mt-20 p-6 md:p-14 font-poppins">
-            <h1 className="text-lg md:text-2xl text-center text-green-900 font-semibold">Mari Mulai</h1>
-            <p className="text-center mx-auto max-w-xs md:max-w-lg text-gray-700 mt-2">Pesan layanan pembuatan CV dan surat lamaran yang siap saing untuk memudahkan anda dalam mencari pekerjaan impian.</p>
-            
-            <div className="flex flex-col space-y-4 mt-8">
-                {services.map((service, index) => (
-                    <div key={index}>
-                        <Line /> 
-                        <Getstartd 
-                            title={service.title} 
-                            price={service.price}
-                            onOpenModal={() => {
-                                setSelectedService(service.title);
-                                setSelectedPrice(service.price);
-                                setIsModalOpen(true);
-                            }}
-                        />
-                    </div>
-                ))}
-            </div>
-            <Line /> 
-            <Modal 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
-                serviceTitle={selectedService} 
+            <h1 className="text-lg md:text-2xl text-center text-green-900 font-semibold">Mari Mulai Buat CV-mu Sekarang!</h1>
+            <Line />
+            {services.map((service, index) => (
+                <Getstartd
+                    key={index}
+                    title={service.title}
+                    price={service.price}
+                    onOpenModal={() => {
+                        setSelectedService(service.title);
+                        setSelectedPrice(service.price);
+                        setIsModalOpen(true);
+                    }}
+                />
+            ))}
+            <Modal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                serviceTitle={selectedService}
                 servicePrice={selectedPrice}
             />
         </div>
