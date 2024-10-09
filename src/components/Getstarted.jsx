@@ -149,8 +149,10 @@ const Modal = ({ isOpen, onClose, serviceTitle, servicePrice }) => {
         </div>
     </div>
     {showConfirmation && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-600 text-white p-4 rounded-lg shadow-lg z-50 w-11/12 md:w-1/3 max-w-lg">
-            <p className="text-center">Order akan segera diproses oleh admin. Terima kasih telah menggunakan layanan <strong>CV.ku!</strong></p>
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 shadow-lg -translate-y-1/2 bg-white text-green-600 p-4 rounded-lg shadow-lg z-50 w-11/12 md:w-1/3 max-w-lg">
+            <h1 className="text-center font-bold text-2xl">Terimakasih Telah Menggunakan Layanan CV.KU</h1>
+            <img src="/check-icon.png" alt="" className="mx-auto py-2 w-36"/>
+            <p className="text-center">Order akan segera diproses oleh admin.</p>
         </div>
     )}
 </div>
