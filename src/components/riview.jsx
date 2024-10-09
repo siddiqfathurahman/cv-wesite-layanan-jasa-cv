@@ -22,30 +22,6 @@ const reviews = [
     },
 ];
 
-const PrevArrow = (props) => {
-    const { className, onClick } = props;
-    return (
-        <div
-            className={`${className} absolute left-0 z-10 flex items-center justify-center h-full cursor-pointer`}
-            onClick={onClick}
-        >
-            <span className="text-blue-600 text-2xl">❮</span>
-        </div>
-    );
-};
-
-const NextArrow = (props) => {
-    const { className, onClick } = props;
-    return (
-        <div
-            className={`${className} absolute right-0 z-10 flex items-center justify-center h-full cursor-pointer`}
-            onClick={onClick}
-        >
-            <span className="text-blue-600 text-2xl">❯</span>
-        </div>
-    );
-};
-
 const ReviewSlider = () => {
     const settings = {
         dots: false,
@@ -53,8 +29,6 @@ const ReviewSlider = () => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        prevArrow: <PrevArrow />,
-        nextArrow: <NextArrow />,
     };
 
     return (
