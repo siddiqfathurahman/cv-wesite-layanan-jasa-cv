@@ -6,10 +6,15 @@ const Navbar = () => {
     const [showIcons, setShowIcons] = useState(false); 
     const [lastScrollY, setLastScrollY] = useState(0); 
     const [scrollDirection, setScrollDirection] = useState('up'); 
+    const [isFirstLoad, setIsFirstLoad] = useState(true); 
 
     const offsetValue = 90;
 
     useEffect(() => {
+        setTimeout(() => {
+            setIsFirstLoad(false);
+        }, 1000); 
+        
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
 
@@ -32,7 +37,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`bg-black fixed bottom-4 left-1/2 transform -translate-x-1/2 z-20 rounded-lg shadow-lg w-[90%] md:w-auto transition-transform duration-300 ${scrollDirection === 'down' ? 'translate-y-20' : 'translate-y-0'}`}>
+        <nav className={`bg-black fixed bottom-4 left-1/2 transform -translate-x-1/2 z-20 rounded-lg shadow-lg w-[90%] md:w-auto transition-transform duration-500 ${isFirstLoad ? 'translate-y-20' : scrollDirection === 'down' ? 'translate-y-20' : 'translate-y-0'}`}>
             <div className="flex items-center justify-between p-2 gap-4">
                 <div className="flex-shrink-0 bg-white rounded-md relative">
                     <img
