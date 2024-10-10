@@ -49,7 +49,7 @@ const Modal = ({ isOpen, onClose, serviceTitle, servicePrice }) => {
                 <div className="bg-white z-50 p-5 rounded-lg shadow-lg w-11/12 md:w-1/3 max-w-lg" onClick={(e) => e.stopPropagation()}>
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-lg font-semibold">Format Order</h2>
-                        <button className="text-xl" onClick={onClose}>×</button>
+                        <button className="text-3xl" onClick={onClose}>×</button>
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4">
@@ -151,7 +151,7 @@ const Modal = ({ isOpen, onClose, serviceTitle, servicePrice }) => {
                 <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-green-600 p-4 rounded-lg shadow-lg z-50 w-11/12 md:w-1/3 max-w-lg">
                     <div className="flex justify-between items-center">
                         <h1 className="text-center font-bold text-2xl">Terimakasih Telah Menggunakan Layanan CV.KU</h1>
-                        <button className="text-xl" onClick={() => setShowConfirmation(false)}>×</button>
+                        <button className="text-4xl text-black mt-[-32px]" onClick={() => setShowConfirmation(false)}>×</button>
                     </div>
                     <img src="/check-icon.png" alt="" className="mx-auto py-2 w-36"/>
                     <p className="text-center">Order akan segera diproses oleh admin.</p>
