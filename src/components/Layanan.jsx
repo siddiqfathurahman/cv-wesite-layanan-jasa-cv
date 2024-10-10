@@ -49,7 +49,7 @@ const Layanan = () => {
             ))}
             <div className="flex justify-center items-center"> {/* Menggunakan h-screen untuk mengatur tinggi kontainer */}
             <button 
-                className="py-3 border-4 hover:bg-green-900 hover:text-white px-16 md:px-36 text-green-900 bg-white border border-green-600"
+                className="py-3 border-4 hover:bg-green-600 hover:text-white px-16 md:px-36 text-green-900 bg-white border border-green-600"
                 onClick={() => document.getElementById('order').scrollIntoView({ behavior: 'smooth' })}
             >
             Booking Cv
