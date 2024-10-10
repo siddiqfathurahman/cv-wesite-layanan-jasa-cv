@@ -17,18 +17,11 @@ const reviews = [
         author: "Bagus Satria - Klien",
     },
     {
-        text: "CV saya sekarang terlihat jauh lebih baik. Terima kasih atas bantuan dan kreativitasnya!",
+        text: "CV saya sekarang terlihat jauh lebih baik. Terima kasih atas bantuan dan kreativitasnya!!",
         author: "Ridho Maria - Klien",
     },
 ];
 
-/*************  ✨ Codeium Command ⭐  *************/
-/**
- * A component that renders a slider of reviews from clients of the service.
- *
- * @return {React.ReactElement} The rendered slider.
- */
-/******  b23c0960-ce88-4dcb-934d-0923f7e33ebf  *******/
 const ReviewSlider = () => {
     const settings = {
         dots: false,
