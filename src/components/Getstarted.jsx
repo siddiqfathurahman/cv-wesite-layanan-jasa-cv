@@ -188,19 +188,23 @@ const Getstarted = () => {
     return (
         <div id="order" className="mx-4 md:mx-10 mt-10 md:mt-20 p-6 md:p-14 font-poppins">
             <h1 className="text-lg md:text-2xl text-center text-green-900 font-semibold">Mari Mulai Buat CV-mu Sekarang!</h1>
-            <Line />
             {services.map((service, index) => (
-                <Getstartd
-                    key={index}
-                    title={service.title}
-                    price={service.price}
-                    onOpenModal={() => {
-                        setSelectedService(service.title);
-                        setSelectedPrice(service.price);
-                        setIsModalOpen(true);
-                    }}
-                />
+                <div key={index}>
+                    <Line /> 
+                    <Getstartd
+                        title={service.title}
+                        price={service.price}
+                        onOpenModal={() => {
+                            setSelectedService(service.title);
+                            setSelectedPrice(service.price);
+                            setIsModalOpen(true);
+                        }}
+                    />
+                    
+                </div>
             ))}
+            <Line /> 
+            
             <Modal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
