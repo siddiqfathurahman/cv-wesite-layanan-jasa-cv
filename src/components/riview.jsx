@@ -22,6 +22,13 @@ const reviews = [
     },
 ];
 
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * A component that renders a slider of reviews from clients of the service.
+ *
+ * @return {React.ReactElement} The rendered slider.
+ */
+/******  b23c0960-ce88-4dcb-934d-0923f7e33ebf  *******/
 const ReviewSlider = () => {
     const settings = {
         dots: false,
