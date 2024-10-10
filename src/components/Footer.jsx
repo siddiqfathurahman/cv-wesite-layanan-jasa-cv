@@ -10,10 +10,10 @@ const Footer = () => {
             <p>Telepon</p>
             <p>123-456-7890</p>
             <p>Email</p>
-            <p className="mb-4">Info@mysite.com</p>
+            <p className="mb-4">infocv@gmail.com</p>
             <p>Alamat</p>
-            <p>500 Terry Francine St</p>
-            <p>San Francisco, CA 94158</p>
+            <p>500 Yogyakarta city</p>
+            <p>Jogjakartans, CA 94158</p>
         </div>
 
         <div>
@@ -72,10 +72,16 @@ const Footer = () => {
             >
                 KIRIM
             </button>
+
             </form>
+
         </div>
         </div>
+        <div className="ml-5">
+                <h1 className='text-white font-sans'>@2024.copyright-layanancv-fathurahman</h1>
+            </div>
     </footer>
+    
     );
 };
 

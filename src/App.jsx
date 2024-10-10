@@ -7,7 +7,6 @@ import Navbar from './components/Navbar'
 import Profil from './components/Profil-riview'
 import ReviewSlider from './components/riview'
 
-
 function App() {
 
   return (

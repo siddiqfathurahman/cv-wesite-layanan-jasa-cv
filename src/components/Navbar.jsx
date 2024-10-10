@@ -1,17 +1,38 @@
-import React, { useState } from 'react';
-import { AiOutlineHome, AiOutlineUser, AiOutlineMessage, AiOutlinePhone, AiFillInstagram, AiOutlineWhatsApp, AiFillFacebook, AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
-import { Link } from 'react-scroll'; 
+import React, { useState, useEffect } from 'react';
+import { AiOutlineHome, AiOutlineUser, AiOutlineMessage, AiOutlinePhone, AiFillInstagram, AiOutlineWhatsApp, AiFillFacebook, AiFillLinkedin } from 'react-icons/ai';
+import { Link } from 'react-scroll';
 
 const Navbar = () => {
     const [showIcons, setShowIcons] = useState(false); 
-    const offsetValue = 90; 
+    const [lastScrollY, setLastScrollY] = useState(0); 
+    const [scrollDirection, setScrollDirection] = useState('up'); 
+
+    const offsetValue = 90;
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY) {
+                setScrollDirection('down'); 
+            } else {
+                setScrollDirection('up'); 
+            }
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [lastScrollY]);
 
     const handleLogoClick = () => {
         setShowIcons(!showIcons); 
     };
 
     return (
-        <nav className="bg-black fixed bottom-4 left-1/2 transform -translate-x-1/2 z-20 rounded-lg shadow-lg w-[90%] md:w-auto">
+        <nav className={`bg-black fixed bottom-4 left-1/2 transform -translate-x-1/2 z-20 rounded-lg shadow-lg w-[90%] md:w-auto transition-transform duration-300 ${scrollDirection === 'down' ? 'translate-y-20' : 'translate-y-0'}`}>
             <div className="flex items-center justify-between p-2 gap-4">
                 <div className="flex-shrink-0 bg-white rounded-md relative">
                     <img
@@ -21,8 +42,7 @@ const Navbar = () => {
                         onClick={handleLogoClick} 
                     />
                     {showIcons && (
-                        <div className={`absolute md:ml-60 ml-32 bg-black left-1/2 transform -translate-x-1/2 -top-10 flex space-x-2 py-2 rounded-xl px-6 transition-transform transition-opacity duration-300 ease-in-out opacity-100 scale-100 
-                            ${showIcons ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                        <div className={`absolute md:ml-60 ml-32 bg-black left-1/2 transform -translate-x-1/2 -top-10 flex space-x-2 py-2 rounded-xl px-6 transition-transform transition-opacity duration-300 ease-in-out opacity-100 scale-100`}>
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white">
                                 <AiFillInstagram className="h-6 w-6" />
                             </a>
