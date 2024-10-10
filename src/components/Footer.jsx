@@ -58,12 +58,6 @@ const Footer = () => {
                 required
             />
             <input
-                type="email"
-                className="col-span-2 border-b border-white bg-green-900 text-white p-1 focus:outline-none "
-                placeholder="Email *"
-                required
-            />
-            <input
                 type="text"
                 className="col-span-2 border-b border-white bg-green-900 text-white p-1 focus:outline-none "
                 placeholder="Subjek"
