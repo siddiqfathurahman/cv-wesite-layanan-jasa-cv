@@ -23,9 +23,11 @@ const Using = () => {
                         0
                     )}
                 </h1>
-                <h2 className="text-3xl md:text-5xl pt-4 font-bold text-center max-w-4xl leading-normal">
+                <h2 className="text-3xl md:text-5xl pt-4 font-bold text-center max-w-4xl" style={{ lineHeight: '1.2' }}>
                     Dipercaya oleh ribuan pengguna untuk layanan CV profesional
                 </h2>
+
+
             </ScrollTrigger>
         </div>
     );
