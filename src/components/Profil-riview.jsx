@@ -7,7 +7,7 @@ const Profil = () => {
                 <p className="text-white text-sm md:text-base pt-4 md:pt-2">Dengan pengalaman dan keahlian dalam penulisan dokumen karir, saya akan membantu Anda menyusun CV yang profesional dan memikat, serta surat lamaran yang mampu mencerminkan kualifikasi dan motivasi Anda dengan jelas. Biarkan saya membantu Anda menonjol di mata perekrut dan meningkatkan peluang sukses dalam dunia kerja yang kompetitif!</p>
             </div>
             <div className="pt-6 md:pt-0 md:pl-5 flex justify-center items-center w-full md:w-[535px] h-auto md:h-[515px]">
-                <img src="/me.png" alt="Profil George" className="w-full max-w-xs md:max-w-full h-auto" />
+                <img src="/me.jpg" alt="Profil George" className="w-full max-w-xs md:max-w-full h-auto" />
             </div>
         </div>
     );
