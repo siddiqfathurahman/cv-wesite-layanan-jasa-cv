@@ -16,7 +16,10 @@ const reviews = [
         text: "Pengalaman saya menggunakan jasa pembuatan CV sangat positif. Mereka sangat profesional dan membantu saya mendapatkan perhatian dari perekrut.",
         author: "Bagus Satria - Klien",
     },
-
+    {
+        text: "CV saya sekarang terlihat jauh lebih baik. Terima kasih atas bantuan dan kreativitasnya!!",
+        author: "Ridho Maria - Klien",
+    },
 ];
 
 const ReviewSlider = () => {
